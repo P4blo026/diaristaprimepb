@@ -23,6 +23,8 @@ header {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    flex-wrap: wrap; /* Permite quebrar linha no celular se necessário */
+    gap: 10px;
 }
 
 .logo {
@@ -31,13 +33,19 @@ header {
     color: #2e7d32;
 }
 
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
 .nav-buttons .btn {
     text-decoration: none;
-    padding: 8px 18px;
-    margin-left: 10px;
+    padding: 8px 16px;
     border-radius: 5px;
     font-weight: 600;
     transition: 0.3s;
+    font-size: 14px;
+    text-align: center;
 }
 
 .btn-entrar {
@@ -65,8 +73,9 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 50px 8%;
+    padding: 40px 8%;
     flex: 1;
+    gap: 30px;
 }
 
 .hero-text {
@@ -74,9 +83,10 @@ header {
 }
 
 .hero-text h1 {
-    font-size: 40px;
+    font-size: 36px;
     color: #1b5e20;
     margin-bottom: 20px;
+    line-height: 1.2;
 }
 
 .hero-text p {
@@ -85,10 +95,18 @@ header {
     color: #555;
 }
 
-.hero-image img {
-    max-width: 400px;
+.hero-image {
+    display: flex;
+    justify-content: center;
     width: 100%;
+    max-width: 450px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 /* Formulários (pagina2.html e pagina3.html) */
@@ -97,12 +115,12 @@ header {
     justify-content: center;
     align-items: center;
     flex: 1;
-    padding: 40px 20px;
+    padding: 30px 20px;
 }
 
 .form-card {
     background-color: #ffffff;
-    padding: 30px 40px;
+    padding: 30px 25px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -155,4 +173,52 @@ header {
 
 .btn-submit:hover {
     background-color: #1b5e20;
+}
+
+
+/* =================================================== */
+/* REGRA RESPONSIVA PARA CELULARES E TABLETS PEQUENOS */
+/* =================================================== */
+@media (max-width: 768px) {
+    
+    /* Reorganiza a barra superior */
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 20px;
+    }
+
+    .nav-buttons {
+        width: 100%;
+        justify-content: center;
+        margin-top: 5px;
+    }
+
+    /* Empilha o texto e a imagem na vertical */
+    .hero {
+        flex-direction: column-reverse; /* A imagem fica em cima ou no texto de forma organizada */
+        padding: 30px 5%;
+        text-align: center;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .hero-text h1 {
+        font-size: 26px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .hero-image {
+        max-width: 100%;
+    }
+
+    /* Ajuste no formulário em telas muito pequenas */
+    .form-card {
+        padding: 25px 18px;
+    }
 }
